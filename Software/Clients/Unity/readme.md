@@ -36,13 +36,13 @@ sciclient.SendPing();
 ```
 
 ## Acknowledgments
-Typically, the Kinetic Sculptures will send acknowledgment packets `0x01 | MessageID` for every received data packet. To reduce the traffic, acknowledgments can be toggled by sending:
+Typically, STRAIDE will send acknowledgment packets `0x01 | MessageID` for every received data packet. To reduce the traffic, acknowledgments can be toggled by sending:
 ```csharp
 sciclient.ToggleAcknowledgment(false);
 ```
 
 ## Reset
-To reset the Kinetic Sculpture or some parts thereof send
+To reset STRAIDE or some parts thereof send
 ```csharp
 sciclient.Reset(0x00);
 ```
@@ -52,12 +52,12 @@ The code determines what to reset:\
 '0x02' - Reset Elements' Color (aka turn off all lights)
 
 ## Request Information
-For many client applications it is necessary to know some information about the Kinetic Sculpture. The `SCIInfoType` defines all potential information that can be requested. Currently it supports `DIM, DIAMETER, RESOLUTION, STEPSPERM, MAXSTEPS`.
+For many client applications it is necessary to know some information about STRAIDE. The `SCIInfoType` defines all potential information that can be requested. Currently it supports `DIM, DIAMETER, RESOLUTION, STEPSPERM, MAXSTEPS`.
 
 ```csharp
 sciclient.GetInformation(SCIInfoType.DIM);
 ```
-To receive the requested information, you need to register a custom callback function. Take a look into the [Protocol](SCIClient/Protocol) (Kinetic Sculpture -> Client Application) to find the encoding of the response's data.
+To receive the requested information, you need to register a custom callback function. Take a look into the [Protocol](/Hardware/protocol.md) to find the encoding of the response's data.
 ```csharp
 private Vector2Int dimension;
 private void RequestInformation(){
@@ -75,7 +75,7 @@ private void ReceiveInformation(byte[] data){
 ```
 
 ## Set Parameter
-To set a parameter of the Kinetic Sculpture, use
+To set a motor parameter of STRAIDE (see [Parameters](/Hardware/parameters.md)), use
 ```csharp
 sciclient.SetParam(ParamID.SPEED, 1000);
 ```
@@ -126,7 +126,7 @@ sciclient.SetMultiplePositionsAndColors(new int[64], new Color[64]);
 ```
 
 ## Animations
-Some animations are predefined on the Kinetic Sculpture itself. Currently, this includes different sine waves. Each animation has an ID (currently ranging from 0-5). To start or change an animation, use
+Some animations are predefined on STRAIDE itself. Currently, this includes different sine waves. Each animation has an ID (currently ranging from 0-5). To start or change an animation, use
 ```csharp
 sciclient.PlayPreset(2);
 ```

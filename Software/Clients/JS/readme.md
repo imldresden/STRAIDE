@@ -7,9 +7,9 @@ This _SCIClient_ can be used in client- or server-side JavaScript applications t
 To create and setup a new SCIClient object, type:
 ```js
 var sciclient = new SCIClient("ws://192.168.0.1:7777/simulator"); // for Simulator
-var sciclient = new SCIClient("ws://10.0.1.3"); // for real Kinetic Sculpture
+var sciclient = new SCIClient("ws://10.0.1.3:7777"); // for real STRAIDE
 ```
-Note that the address does not include any definition of the _port_ or the _subaddress_ if connected to the real Kinetic Sculpture.
+Note that the address does not include any definition of the _port_ or the _subaddress_ if connected to the real STRAIDE.
 It will create a new object, setup the WebSocket connection the device and setup the messageListeners.
 
 For most applications it will be interesting to know, if the SCIClient is set up and a WebSocket connection is established. Use the following code for this purpose:
@@ -26,13 +26,13 @@ sciclient.sendPing();
 ```
 
 ## Acknowledgments
-Typically, the Kinetic Sculptures will send acknowledgment packets `0x01 | MessageID` for every received data packet. To reduce the traffic, acknowledgments can be toggled by sending:
+Typically, STRAIDE will send acknowledgment packets `0x01 | MessageID` for every received data packet. To reduce the traffic, acknowledgments can be toggled by sending:
 ```js
 sciclient.toggleAcknowledgment(true);
 ```
 
 ## Reset
-To reset the Kinetic Sculpture or some parts thereof send
+To reset STRAIDE or some parts thereof send
 ```js
 sciclient.reset(SCIResetType.ALL);
 ```
@@ -42,7 +42,7 @@ The code determines what to reset:\
 `0x02` - Reset Elements' Color (aka turn off all lights)
 
 ## Request Information
-For many client applications it is necessary to know some information about the Kinetic Sculpture. The `SCIInfoType` defines all potential information that can be requested. Currently it supports `DIM, DIAMETER, RESOLUTION, STEPSPERM, MAXSTEPS`.
+For many client applications it is necessary to know some information about STRAIDE. The `SCIInfoType` defines all potential information that can be requested. Currently it supports `DIM, DIAMETER, RESOLUTION, STEPSPERM, MAXSTEPS`.
 
 ```js
 sciclient.getInformation(SCIInfoType.DIM, function(data){
@@ -50,10 +50,10 @@ sciclient.getInformation(SCIInfoType.DIM, function(data){
    dimY = data[1];
 });
 ```
-A custom callback function needs to be added to evaluate the sculpture's response. Take a look into the [Protocol](SCIClient/Protocol) (Kinetic Sculpture -> Client Application) to find the encoding of the response's data.
+A custom callback function needs to be added to evaluate the sculpture's response. Take a look into the [Protocol](/Hardware/protocol.md) to find the encoding of the response's data.
 
 ## Set Parameter
-To set a parameter of the Kinetic Sculpture, use
+To set a motor parameter of STRAIDE (see [Parameters](/Hardware/parameters.md)), use
 ```js
 sciclient.setParam(SCIParamType.SPEED, 1000);
 ```
@@ -104,7 +104,7 @@ sciclient.setMultiplePositionsAndColors(new int[64], new SCIColor[64]);
 ```
 
 ## Animations
-Some animations are predefined on the Kinetic Sculpture itself. Currently, this includes different sine waves. Each animation has an ID (currently ranging from 0-5). To start or change an animation, use
+Some animations are predefined on STRAIDE itself. Currently, this includes different sine waves. Each animation has an ID (currently ranging from 0-5). To start or change an animation, use
 ```js
 sciclient.playPreset(2);
 ```

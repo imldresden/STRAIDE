@@ -14,7 +14,7 @@ Create a new SCIClient object as a global variable with the correct address info
 #include <SCIClient.h>
 
 SCIClient client = SCIClient("192.168.0.1", 7777, "/simulator");  // for Simulator
-// SCIClient client = SCIClient("10.6.0.1", 80, "/");  // for real STRAIDE
+// SCIClient client = SCIClient("10.6.0.1", 7777, "/");  // for real STRAIDE
 
 void setup(){
    WiFi.mode(WIFI_STA);
@@ -34,13 +34,13 @@ sciclient.SendPing();
 ```
 
 ## Acknowledgments
-Typically, the Kinetic Sculptures will send acknowledgment packets `0x01 | MessageID` for every received data packet. To reduce the traffic, acknowledgments can be toggled by sending:
+Typically, STRAIDE will send acknowledgment packets `0x01 | MessageID` for every received data packet. To reduce the traffic, acknowledgments can be toggled by sending:
 ```cpp
 sciclient.ToggleAcknowledgment(false);
 ```
 
 ## Reset
-To reset the Kinetic Sculpture or some parts thereof send
+To reset STRAIDE or some parts thereof send
 ```cpp
 sciclient.Reset(0x00);
 ```
@@ -50,12 +50,12 @@ The code determines what to reset:\
 `0x02` - Reset Elements' Color (aka turn off all lights)
 
 ## Request Information
-For many client applications it is necessary to know some information about the Kinetic Sculpture. The `InfoID` defines all potential information that can be requested. Currently it supports `DIM, DIAMETER, RESOLUTION, STEPSPERM, MAXSTEPS`.
+For many client applications it is necessary to know some information about STRAIDE. The `InfoID` defines all potential information that can be requested. Currently it supports `DIM, DIAMETER, RESOLUTION, STEPSPERM, MAXSTEPS`.
 
 ```cpp
 sciclient.GetInformation(SCIClient::InfoID::DIM);
 ```
-To receive the requested information, you need to register a custom callback function. Take a look into the [Protocol](SCIClient/Protocol) (Kinetic Sculpture -> Client Application) to find the encoding of the response's data.
+To receive the requested information, you need to register a custom callback function. Take a look into the [Protocol](/Hardware/protocol.md) to find the encoding of the response's data.
 ```cpp
 int maxsteps = 0;
 void RequestInformation(){
@@ -73,7 +73,7 @@ private void ReceiveInformation(byte[] data){
 ```
 
 ## Set Parameter
-To set a parameter of the Kinetic Sculpture, use
+To set a motor parameter of STRAIDE (see [Parameters](/Hardware/parameters.md)), use
 ```cpp
 sciclient.SetParam(SCIClient::ParamID::SPEED, 1000);
 ```
@@ -124,7 +124,7 @@ sciclient.SetMultiplePositionsAndColors(positions, colors);
 ```
 
 ## Animations
-Some animations are predefined on the Kinetic Sculpture itself. Currently, this includes different sine waves. Each animation has an ID (currently ranging from 0-5). To start or change an animation, use
+Some animations are predefined on STRAIDE itself. Currently, this includes different sine waves. Each animation has an ID (currently ranging from 0-5). To start or change an animation, use
 ```cpp
 sciclient.PlayPreset(2);
 ```
