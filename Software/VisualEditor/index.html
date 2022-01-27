@@ -1,0 +1,404 @@
+<!--
+    This file is part of the STRAIDE Visual Editor.
+
+    Foobar is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Foobar is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>STRAIDE - Visual Editor</title>
+        <meta name="description" content="Visual Editor for the STRAIDE toolkit to ideate shape-changing applications in early concept phases.">
+        
+        <link href="libs/bootstrap.min.css" rel="stylesheet">
+        <script src="libs/fontawesome.js"></script>        
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div id="banner">
+            <p>Source Code available on:<br/><br/>
+                <a href="https://github.com/imldresden/STRAIDE/tree/master/Software/VisualEditor" target="_blank">
+                    <i class="fab fa-github fa-4x"></i>
+                </a>
+            </p>
+        </div>
+
+        <div class="container align-items-middle">
+            <div class="row align-items-center">
+                <div class="col text-center"><h1 class="display-2">STRAIDE Visual Editor</h1></div>
+                <div class="col-auto">
+                    <div class="card m-5">
+                        <div class="card-header">Options</div>
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="row row-cols-lg-auto align-items-center gx-5 mb-3">
+                                    <div class="col-auto"><b>Connection:</b></div>
+                                    <div class="col">
+                                        <div class="form-floating">
+                                        <input id="IP" class="form-control" type="text" minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$" placeholder="IP-Adresse" value="192.168.">
+                                        <label for="IP">IP-Address:</label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input id="simulator" class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">Simulator?</label>
+                                        </div> 
+                                    </div>
+                                    <div class="col" id="ipBtn">
+                                        <button type="button" class="btn btn-success" onclick="reload();">Connect</button>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row row-cols-lg-auto align-items-center gx-5">
+                                    <div class="col-auto"><b>Dimension:&nbsp;</b></div>
+                                    <div class="col">
+                                        <div class="form-floating">
+                                            <input id="dimX" class="form-control" type="number" min="0" value="8" placeholder="X"/>
+                                            <label for="dimX">X</label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-floating">
+                                            <input id="dimY" class="form-control" type="number" min="0" value="8" placeholder="Y"/>
+                                            <label for="dimY">Y</label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-success" onclick="reload();">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+        </div>
+
+        <div id="color"></div>
+        <div id="position"></div>
+
+        <div class="container-fluid" style="border: 1px solid lightgrey;">
+            <div class="row p-3" id="results">
+                <div class="col-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="btn-group-vertical">
+                                <button type="button" class="btn btn-success" onclick="exportCanvas();">Save Current</button>
+                                <input type="file" class="form-control form-control-sm" multiple onchange="this.nextElementSibling.style=(this.value != ''?'':'visibility:hidden');"/>
+                                <button type="button" class="btn btn-outline-secondary" style="visibility:hidden" onclick="loadFromDisk();">Load from Disk</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="exportContent" class="col-auto mb-3" style="display:none">
+                    <div class="card">
+                        <div class="card-body">
+                            <img width="32" height="32" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAH0lEQVQoU2NkYGD4A8Q4AeOQUXAB6gcDLH4B+wKfAgDN2Anp89heXAAAAABJRU5ErkJggg==">
+                            <img width="32" height="32" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAJUlEQVQoU2NkYGD4A8Q4AeNgVWBpaQl29PHjxxmwOpKgAmQ/AwC9lw3pre2ZggAAAABJRU5ErkJggg==">
+                        </div>
+                        <div class="card-footer">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-secondary"><i class="fas fa-upload"></i></button>
+                                <a class="btn btn-outline-secondary"><i class="fas fa-download"></i></a>
+                                <button type="button" class="btn btn-danger" onclick="this.parentNode.parentNode.parentNode.parentNode.remove();"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div id="content" style="display:none;">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-auto mb-3" style="position: relative;">
+                        <p class="h2">xyz</p>
+                    </div>
+                    <div class="col-md-auto mb-3">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                Canvas
+                            </div>
+                            <div class="card-body align-content-center d-flex flex-wrap">
+                                <canvas id="xyz_canvas" style="border: 1px solid lightgrey;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-auto mb-3">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                Result
+                            </div>
+                            <div class="card-body align-content-center d-flex flex-wrap">
+                                <img id="xyz_resImg" width="64" height="64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVQoU2NkYGD4A8Q4AePIUAAAd9gH6QxTg1EAAAAASUVORK5CYII="/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-auto mb-3">
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                            <div class="col">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        General
+                                    </div>
+                                    <div class="card-body">
+                                        <button id="xyz_clearCanvas" type="button" class="btn btn-danger">Clear Canvas</button><br/><br/>
+                                        <div class="btn-group" role="group">                                            
+                                            <button id="xyz_addRect" type="button" class="btn btn-secondary">Add <i class="far fa-square"></i></button>
+                                            <button id="xyz_addTri" type="button" class="btn btn-secondary">Add <i class="fas fa-caret-up"></i></button>
+                                            <button id="xyz_addCirc" type="button" class="btn btn-secondary">Add <i class="far fa-circle"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        Free Drawing Brush
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-3">                                       
+                                            <label class="col col-form-label form-check-label" for="xyz_toggleBrush">Toggle Brush</label>
+                                            <div class="col">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="xyz_toggleBrush">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row"id="xyz_brushCollapse" style="visibility: hidden;">
+                                            <label for="xyz_brushWidth" class="col col-form-label">Brush Size (<span>1</span> Element)</label>
+                                            <div class="col">
+                                                <input type="range" class="form-range" id="xyz_brushWidth" min="50" max="400" step="50" value="50" oninput="this.parentNode.previousElementSibling.children[0].innerHTML = this.value / 50;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Colors
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-3">
+                                            <label for="xyz_baseColor" class="col-md-4 col-form-label">Base Color</label>
+                                            <div class="col">
+                                                <input type="color" class="form-control form-control-color" id="xyz_baseColor" title="Pick your color"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="col col-form-label form-check-label" for="xyz_toggleGradient">Apply Gradient</label>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="xyz_toggleGradient">
+                                                </div>
+                                            </div>   
+                                        </div>
+                                        <div id="xyz_gradientCollapse" style="visibility: hidden">
+                                            <div class="row mb-3">
+                                                <label for="xyz_endColor" class="col-md-4 col-form-label">Second Color</label>
+                                                <div class="col">
+                                                    <input type="color" class="form-control form-control-color" id="xyz_endColor" title="Pick your color"/>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-4">
+                                                    <p>Type:</p>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="xyz_linearGradient" checked>
+                                                        <label class="form-check-label" for="xyz_linearGradient">
+                                                            Linear
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="xyz_radialGradient">
+                                                        <label class="form-check-label" for="xyz_radialGradient">
+                                                            Radial
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label for="xyz_gradientAngle" class="col-md-4 col-form-label">Angle (<span style="font-family: monospace">&nbsp;&nbsp;0°</span>)</label>
+                                                <div class="col">
+                                                    <input type="range" class="form-range" id="xyz_gradientAngle" value="0" max="360" step="15" value="0" oninput='this.parentNode.previousElementSibling.children[0].innerHTML=("&nbsp;&nbsp;&nbsp;" + this.value).slice(-3) + "°";'>
+                                                </div>
+                                            </div>     
+                                        </div>                            
+                                    </div>
+                                </div>
+                            </div>           
+                        </div>
+                    </div>
+                </div>
+                
+    
+            </div>
+        </div>
+        
+
+
+        <script src="libs/jquery-3.6.0.min.js"></script>
+        <script src="libs/fabric.js"></script>
+        <script src="libs/sketchObj.js"></script>
+        <script src="../Clients/JS/SCIClient.js"></script>
+        <script>
+            var client;
+            var sketchObj1;
+            var sketchObj2;
+
+            function reload(){
+                var ip = document.getElementById("IP").value;
+                var sim = document.getElementById("simulator").checked;
+
+                var queryParams = new URLSearchParams(window.location.search);
+ 
+                queryParams.set("ip", ip);
+                queryParams.set("s", sim?"1":"0");
+                queryParams.set("x", document.getElementById("dimX").value);
+                queryParams.set("y", document.getElementById("dimY").value);                
+                history.replaceState(null, null, "?"+queryParams.toString());
+                location.reload();
+            }
+
+            (function(){
+                const urlParams = new URLSearchParams(window.location.search);
+                const ip = urlParams.get("ip");
+                const sim = urlParams.get("s");
+                const x = urlParams.get("x");
+                const y = urlParams.get("y");
+
+                if(sim === "1"){
+                    client = new SCIClient("ws://" + ip + ":7777/simulator");
+                    document.getElementById("simulator").checked = true;
+
+                }
+                else if(sim === "0") {
+                    client = new SCIClient("ws://" + ip + ":7777");
+                }
+
+                var dimension = [x?parseInt(x):8,y?parseInt(y):8];
+
+
+                client.onready = function(){
+                    document.getElementById("IP").value = ip;
+                    document.getElementById("dimX").value = dimension[0];
+                    document.getElementById("dimY").value = dimension[1];
+
+                    sketchObj1 = new SketchingObj(document.getElementById("color"), document.getElementById("content"), dimension, true, updateColor);
+                    sketchObj2 = new SketchingObj(document.getElementById("position"), document.getElementById("content"), dimension, false, updatePosition);
+                    document.getElementById("ipBtn").style="visibility:hidden";
+                    
+
+                    client.oninput = function(element, value){
+                        sketchObj2.oninput(element.x, element.y, value);
+                    }
+                    client.reset(0x00);
+                }
+            })();
+
+            var previewElement = document.getElementById("exportContent");
+
+            //var client = new SCIClient("ws://192.168.0.10:7777/simulator");
+
+            function updateColor(colors){
+                var col = new Array();
+                for(var y = 0; y < 8; y++){
+                    for(var x = 0; x < 8; x++){
+                        col[(7-y)*8+x] = new SCIColor(colors[y*8+x][0],colors[y*8+x][1],colors[y*8+x][2]); //,(colors[y*8+x][0]+colors[y*8+x][1]+colors[y*8+x][2])/3);
+                    }
+                }
+                client.setMultipleColors(col);
+            }
+
+            function updatePosition(colors){
+                var pos = new Array();
+                for(var y = 0; y < 8; y++){
+                    for(var x = 0; x < 8; x++){
+                        pos[(7-y)*8+x] = colors[y*8+x][0]*19.6;
+                    }
+                }
+                client.setMultiplePositions(pos);
+            }
+
+            function createPreview(content){
+                var container = document.getElementById("results");
+
+                var cln = previewElement.cloneNode(true);
+                cln.removeAttribute('id');
+                cln.style="";
+                var images = cln.querySelectorAll("img");
+                images[0].src = content[0];
+                images[1].src = content[1];
+                cln.querySelector("button").onclick = function(){
+                    loadContent([content[2],content[3]]);
+                };
+
+                var contentString = JSON.stringify(content);
+                var file = new Blob([contentString],{type:"text/plain"});
+                cln.querySelector("a").href = URL.createObjectURL(file);
+                cln.querySelector("a").download = Date.now() + ".txt";
+
+                container.append(cln);
+            }
+
+            function exportCanvas(){
+
+                var res1 = sketchObj1.exportContent();
+                var res2 = sketchObj2.exportContent();
+
+                var content = [res1[0], res2[0], res1[1], res2[1]];
+
+                createPreview(content);
+            }
+
+            function loadContent(content){
+                sketchObj1.importContent(content[0]);
+                sketchObj2.importContent(content[1]);
+            }
+
+            function loadFromDisk(){
+                var input = document.getElementById("results").querySelector("input[type='file']");
+                var files = input.files;
+                for(var i = 0; i < files.length; i++){
+                    var reader = new FileReader();
+                    reader.onload = function(e){
+                        var content = e.target.result;
+                        createPreview(JSON.parse(content));
+                    }
+                    reader.readAsText(files[i]);
+                }
+
+                input.value = null;
+                input.onchange();
+            }
+
+
+
+
+        </script>
+    </body>
+</html>
