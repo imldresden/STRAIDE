@@ -1,0 +1,7 @@
+bootstrap.bunde.min.js -linguist-vendored
+bootstrap.bunde.min.js.map -linguist-vendored
+bootstrap.min.css -linguist-vendored
+bootstrap.min.css.map -linguist-vendored
+fabric.js -linguist-vendored
+fontawesome.js -linguist-vendored
+jquery-3.6.0.min.js -linguist-vendored
