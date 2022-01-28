@@ -1,7 +1,1 @@
-Software/VisualEditor/libs/bootstrap.bunde.min.js linguist-vendored
-Software/VisualEditor/libs/bootstrap.bunde.min.js.map linguist-vendored
-Software/VisualEditor/libs/bootstrap.min.css linguist-vendored
-Software/VisualEditor/libs/bootstrap.min.css.map linguist-vendored
-Software/VisualEditor/libs/fabric.js linguist-vendored
-Software/VisualEditor/libs/fontawesome.js linguist-vendored
-Software/VisualEditor/libs/jquery-3.6.0.min.js linguist-vendored
+Software/VisualEditor/libs/* linguist-vendored
