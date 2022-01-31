@@ -26,7 +26,7 @@ maintained by [Severin Engert](https://github.com/sev01)
   * Slave Motors (TODO)
   * Slave Colors (TODO)
 * [Software](Software)
-  * Platform Emulator (TODO) ([Executable](Software/PlatformEmulator/PlatformEmulator.zip), Unity-Project, AR)
+  * Platform Emulator (TODO) ([Executable](Software/PlatformEmulator/PlatformEmulator.zip), [Unity-Project](Software/PlatformEmulator/Unity), AR)
   * [Clients](Software/Clients) ([Arduino](Software/Clients/Arduino), [JavaScript](Software/Clients/), [C#](Software/Clients/Unity))
   * [Visual Editor](Software/VisualEditor) (live (TODO))
 
