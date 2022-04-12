@@ -1,0 +1,26 @@
+.manualLabel {
+    display: inline-block;
+    transform: scale(.85) translateX(-2rem);
+    opacity: .5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: .2s;
+    color: #384a1e;
+}
+
+a:hover {
+    color: #92c14e;
+}
+
+hr {
+    width:60%;
+    margin-left:20%;
+}
+
+.card-img-overlay {
+    top:unset;
+    background: rgba(255,255,255,.8);
+}

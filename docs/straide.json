@@ -1,0 +1,636 @@
+{
+    "name":"STRAIDE",
+    "num":1,
+    "components": [{
+        "name":"Actuation Unit",
+        "num":1,
+        "model":"ActuationUnit.glb",
+        "components":[{
+            "name":"Base Plate",
+            "num":1,
+            "model":"BasePlate.glb",
+            "components": [{
+                "name":"Sheets",
+                "num":8,
+                "desc":"lasercut from 3mm HDF sheets",
+                "file":"BasePlate/baseplate.zip",
+                "type":"SVG"
+            },
+            {
+                "name":"Felt",
+                "num":1,
+                "desc":"lasercut from 3mm synthetic felt",
+                "file":"BasePlate/Felt.svg",
+                "type":"SVG"
+            },
+            {
+                "name":"Square Steel Bar",
+                "num":4,
+                "desc":"6x6mm straight steel bar"
+            },
+            {
+                "name":"Screw",
+                "num":13,
+                "desc":"M3x25mm lens head screws"
+            },
+            {
+                "name":"Nut",
+                "num":13,
+                "desc":"M3 nut"
+            },
+            {
+                "name":"Washer",
+                "num":13,
+                "desc":"3D printed washers"
+            }],
+            "manual": [
+                "Use the provided files to cut the base boards out of 3mm HDF sheets (each min. 520x520) using a laser or a CNC machine",
+                "Use the provided file to cut a dampening layer from 3mm synthetic felt (min. 500x500mm)",
+                "Cut the square steel bar to length, deburr and chamfer the edges",
+                "Stack the synthetic felt as the first layer and then the base boards according to their numbering",
+                "Insert the square steel bars into the designated slots",
+                "Join the stack by using 13 screws, the 3D printed spacers will help to hold the felt in position. The nuts can be countersunk in the topmost board"
+            ]
+        },
+        {
+            "name":"Motor Tower",
+            "num":16,
+            "model":"MotorTower.glb",
+            "components": [{
+                "name":"Motor Mount",
+                "num":4,
+                "model":"BaseModule.glb",
+                "components": [{
+                    "name":"Parts",
+                    "num":6,
+                    "desc":"Lasercut parts made from 3mm acrylic sheets",
+                    "img":"acryl_parts.jpg"
+                },{
+                    "name":"Felt",
+                    "num":1,
+                    "desc":"Lasercut suspension made from 3mm synthetic felt",
+                    "img":"felt.jpg"
+                },{
+                    "name":"Endstop",
+                    "num":1,
+                    "model":"EndStop.glb",
+                    "components":[{
+                        "name":"Holder",
+                        "num":1,
+                        "desc":"3D printed part that mounts the endstop",
+                        "file":"MotorMount/EndStop.stl",
+                        "type":"STL"
+                    },{
+                        "name":"Tactile Switch",
+                        "num":1,
+                        "desc":"Panasonic AV 32143 AT",
+                        "img":"switch.jpg"
+                    },{
+                        "name":"Wire",
+                        "num":1,
+                        "desc":"2-strand wire with jumper connector on one end"
+                    },{
+                        "name":"Spring",
+                        "num":1,
+                        "desc":"0.5x3.5x15mm compression spring"
+                    },{
+                        "name":"Screw",
+                        "num":1,
+                        "desc":"M4x25, internal hexagon"
+                    },{
+                        "name":"Nut 1",
+                        "num":1,
+                        "desc":"M4, locking"
+                    },{
+                        "name":"Nut 2",
+                        "num":1,
+                        "desc":"M3, locking"
+                    }],
+                    "manual":[
+                        "Print Holder using any material that is more heat resistant than PLA. Use fine print settings, no support is needed.",
+                        "Solder wire to tactile switch's closing connectors",
+                        "Add switch to inner side of 3D printed part",
+                        "Add spring-loaded mechanism comprising the spring, the screw and Nut 1",
+                        "Add Nut 2 to dedicated slot on the outside of the holder"
+                    ]
+                },{
+                    "name":"Stepper Motor",
+                    "num":1,
+                    "desc":"NEMA14 stepper motor, length: 34mm, >=18Ncm",
+                    "img":"stepper.jpg"
+                },{
+                    "name":"Screw 1",
+                    "num":4,
+                    "desc":"M3x6, countersunk"
+                },{
+                    "name":"Screw 2",
+                    "num":4,
+                    "desc":"M4x12, countersunk"
+                },{
+                    "name":"Nut",
+                    "num":4,
+                    "desc":"M4, locking"
+                },{
+                    "name":"Damper Ring",
+                    "num":4,
+                    "desc":"Lasercut from 3mm synthetic felt"
+                },{
+                    "name":"Roll",
+                    "num":1,
+                    "model":"Roll.glb",
+                    "components":[{
+                        "name":"Roll",
+                        "num":1,
+                        "desc":"3D printed roll, use heat resistant ABS"
+                    },{
+                        "name":"Screw",
+                        "num":1,
+                        "desc":"M3x16, rounded head"
+                    },{
+                        "name":"Nut",
+                        "num":1,
+                        "desc":"M3, locking"
+                    },{
+                        "name":"Fishing Line",
+                        "num":1,
+                        "desc":"4m of non-elastic fishing line (e.g. braided, not monofil) or similar thin, strong material that is barely visible"
+                    },{
+                        "name":"Jewelry Hook",
+                        "num":1,
+                        "desc":"Tiny hook typically used for jewelry like nacklaces"
+                    }],
+                    "manual":[
+                        "Print the roll from heat-resistant material (>100°C glass transition temperatures). Quality does not matter (e.g. 0.3mm layer height), but it should tightly fit on motor shaft.",
+                        "Add nut and screw to print",
+                        "Add an <a href='https://www.animatedknots.com/adjustable-grip-hitch-knot' target='_blank'>adjustable grip hitch</a> to one end of the line.",
+                        "Add the jewelry hook to the other end with a <a href='https://www.animatedknots.com/double-davy-knot' target='_blank'>double davy knot</a>.",
+                        "Once the Motor Tower is assembled, thread the loop through the lower aligner, the other motor modules, around the rod, through the hole in the roll and fasten it onto the motor shaft."
+                    ]
+                },{
+                    "name":"Rod",
+                    "num":1,
+                    "desc":"Aluminum rod, diameter 4mm, length: 80.5mm"
+                },{
+                    "name":"Screw 3",
+                    "num":1,
+                    "desc":"M3x16, round head"
+                }],
+                "manual":[
+                    "Lasercut all the required parts, prepare the EndStop and the Roll.",
+                    "Glue the acrylic parts using Dichloromethane",
+                    "(Braid motor wires, add connectors to the motor wires.)",
+                    "Srew suspension felt to motor front plate using four Screw 1.",
+                    "Screw suspension to Motor Mount using four Screw 2, four nuts, and four damper rings.",
+                    "Add Roll to motor's shaft.",
+                    "Add EndStop and Rod to the Motor Mount and lock it off using Screw 3."
+                ]
+            },{
+                "name":"Controller Mount",
+                "num":1,
+                "model":"ControllerModule.glb",
+                "components":[{
+                    "name":"Parts",
+                    "num":5,
+                    "desc":"Lasercut parts made from 3mm acrylic sheets"
+                },{
+                    "name":"Arduino Uno",
+                    "num":1,
+                    "desc":"Standard ATmega328P microcontroller board"
+                },{
+                    "name":"Ethernet Shield",
+                    "num":1,
+                    "desc":"Ethernet Shield for Arduino Uno / Mega with W5100 Ethernet Chip"
+                },{
+                    "name":"Intermediate PCB",
+                    "num":1,
+                    "desc":"Custom PCB to reroute CNC shield connections (CNC and Ethernet Shield use same I/O ports)"
+                },{
+                    "name":"CNC Shield",
+                    "num":1,
+                    "desc":"CNC Shield v3 by <a href='https://blog.protoneer.co.nz/' target='_blank'>protoneer</a>"
+                },{
+                    "name":"Wire",
+                    "num":2,
+                    "desc":"Power wires to supply Arduino Uno and CNC Shield with 12V power (<20AWG)"
+                },{
+                    "name":"Ethernet Cable",
+                    "num":1,
+                    "desc":"0.5-1m long flexible Ethernet Cable"
+                },{
+                    "name":"Screw",
+                    "num":4,
+                    "desc":"M3x16"
+                },{
+                    "name":"Nut",
+                    "num":12,
+                    "desc":"M3"
+                }],
+                "manual":[
+                    "Lasercut all the required parts. Glue them using Dichloromethane.",
+                    "Create stack from the shields (bottom to top): Arduino Uno, Ethernet Shield, Custom PCB, CNC Shield.",
+                    "Prepare power supply wires with a length of 500mm each and crimps on one end.Add the Ethernet Cable.",
+                    "Fix Arduino to mount using four screws and four nuts, create some distance by stacking two nuts between the Arduino and the acrylic pieces on each screw."
+                ]
+            },{
+                "name":"Aligner",
+                "num":1,
+                "desc":"Lasercut aligner for the strings"
+            },{
+                "name":"Threaded Rod",
+                "num":4,
+                "desc":"M5 threaded rod, length: 400mm"
+            },{
+                "name":"Spacer 1",
+                "num":16,
+                "desc":"Made from plastic tubing, inner diameter: 5mm, length: 60mm"
+            },{
+                "name":"Spacer 2",
+                "num":4,
+                "desc":"Made from plastic tubing, inner diameter: 5mm, length: 30mm"
+            },{
+                "name":"Spacer 3",
+                "num":4,
+                "desc":"Made from plastic tubing, inner diameter: 5mm, length: 100mm"
+            },{
+                "name":"Nut",
+                "num":8,
+                "desc":"Cover nut M5"
+            },{
+                "name":"Damper Rings",
+                "num":48,
+                "desc":"Optional damper rings made from 3mm synthetic felt"
+            }],
+            "manual":[
+                "Prepare Motor Modules, Controller Module, cut rods to length, cut spacers to length.",
+                "Begin stacking the components by adding cover nuts to one end of all rods.",
+                "Now add the Aligner connecting the four rods",
+                "Add one damper, one Spacer 1, one damper.",
+                "Add one motor module.",
+                "Repeat step 4 and 5 three times. Take care that each motor module needs to be rotated 90 degrees clockwise to the previous one.",
+                "Add one damper, one Spacer 2, one damper.",
+                "Add the Controller Module.",
+                "Add one damper, one Spacer 3, one damper.",
+                "Condense the stack as far as possible. The four remaining cover nuts will be needed to combine the individual towers once they are stacked inside the Actuation Unit."
+            ]
+        },{
+            "name":"Control Unit",
+            "num":1,
+            "components":[{
+                "name":"Back Plate",
+                "num":1,
+                "desc":"lasercut from 3mm acrylic sheets"
+            },{
+                "name":"Screw",
+                "num":4,
+                "desc":"M3x10"
+            },{
+                "name":"Slot Nut",
+                "num":4,
+                "desc":"Slot nut with M3 thread"
+            },{
+                "name":"Distributer Block",
+                "num":6,
+                "desc":"Quick Release Distributer Blocks, min. 1 GND, min. 4x +"
+            },{
+                "name":"Clamps",
+                "num":6,
+                "desc":"3D printed clamps to mount Distributer Blocks to aluminum profile"
+            },{
+                "name":"Power Supply",
+                "num":4,
+                "desc":"180W AC-DC Industrial Adaptor"
+            },{
+                "name":"Fan",
+                "num":3,
+                "desc":"60mm silent fans with 50x50mm M4 mounting"
+            },{
+                "name":"Screw 1",
+                "num":12,
+                "desc":"M4x35"
+            },{
+                "name":"Nut 1",
+                "num":12,
+                "desc":"M4 nut"
+            },{
+                "name":"Controller",
+                "num":1,
+                "components":[{
+                    "name":"Raspberry Pi 4 B",
+                    "num":1,
+                    "desc":"Central controller to run NodeJS server"
+                },{
+                    "name":"Temperature Sensor",
+                    "num":1,
+                    "desc":"DHT22 temperature sensor"
+                },{
+                    "name":"Push Button",
+                    "num":2,
+                    "desc":"Generic Push Button"
+                }],
+                "manual":[
+                    "Connect temperature sensor and push buttons to Raspberry Pi I/O ports",
+                    "Connect Raspberry Pi with power and Ethernet",
+                    "Install Raspbian OS on Raspberry Pi, add VS Code, pull repo, npm install, run controller.js"                    
+                ]
+            },{
+                "name":"Ethernet Switch",
+                "num":1,
+                "desc":"24-port Ethernet Switch with mounts"
+            },{
+                "name":"Router",
+                "num":1,
+                "desc":"Generic router for wireless accessibility"
+            },{
+                "name":"Power Strip",
+                "num":1,
+                "desc":"Switched power strip with > 2 plugs"
+            }],
+            "manual":[
+                "Mount the backplate to the back of the actuation unit with M3 screws and slot nuts.",
+                "Attach the Controller, the Network Switch, and the Router with mounts, screws, or zip ties.",
+                "Mount the Distributer blocks to the upper slot with the provided mounts."
+            ]
+        },
+        {
+            "name":"Cover",
+            "num":1,
+            "model":"UpperCover.glb",
+            "components": [{
+                "name":"Sheets",
+                "num":4,
+                "desc":"lasercut from 3mm acrylic sheets"
+            },
+            {
+                "name":"Fan",
+                "num":9,
+                "desc":"60mm silent fans with 50x50mm M4 mounting"
+            },
+            {
+                "name":"Screw",
+                "num":40,
+                "desc":"M4x35 screws"
+            },
+            {
+                "name":"Nut",
+                "num":40,
+                "desc":"M4 nut"
+            },
+            {
+                "name":"Screw Terminal",
+                "num":4,
+                "desc":"WAGO terminals 5-conductor"
+            },
+            {
+                "name":"Wire",
+                "num":1,
+                "desc":"2m of 2-conductor power wire"
+            },
+            {
+                "name":"Power Connector",
+                "num":1,
+                "desc":"XT60 power connector male and female"
+            }]
+
+        },
+        {
+            "name":"Connector",
+            "num":13,
+            "desc":"Lasercut connectors made from 3mm acrylic sheets"
+        }]
+    },
+    {
+        "name":"Frame",
+        "num":1,
+        "model":"Frame.glb",
+        "components": [{
+            "name":"Profile 1",
+            "num":2,
+            "desc":"Aluminum extrusion 40x80mm, length: 2400mm, slot: 10mm"
+        },{
+            "name":"Profile 2",
+            "num":7,
+            "desc":"Aluminum extrusion 40x80mm, length: 500mm, slot: 10mm"
+        },{
+            "name":"Profile 3",
+            "num":4,
+            "desc":"Aluminum extrusion 40x40mm, length: 562mm, slot: 10mm"
+        },{
+            "name":"Profile 4",
+            "num":4,
+            "desc":"Aluminum extrusion 40x40mm, length: 500mm, slot: 10mm"
+        },{
+            "name":"Big Angle Bracket",
+            "num":10,
+            "desc":"Angle Joint 90°, 40x80mm, slot: 10mm"
+        },{
+            "name":"Small Angle Bracket",
+            "num":10,
+            "desc":"Angle Joint 90°, 40x40mm, slot: 10mm"
+        },{
+            "name":"Angle Joint",
+            "num":4,
+            "desc":"90°-270°, 40x40mm, slot: 10mm"
+        },{
+            "name":"Box Joint",
+            "num":2,
+            "desc":"90°, 40x40mm, M8"
+        },{
+            "name":"Heavy Duty Feet",
+            "num":4,
+            "desc":"Feet with mounting plate for aluminum extrusions"
+        },{
+            "name":"Heavy Duty Roll",
+            "num":2,
+            "desc":"Rolls with mounting plate for aluminum extrusions"
+        },{
+            "name":"T-Screw",
+            "num":92,
+            "desc":"M8, for slot: 10mm"
+        },{
+            "name":"Nut",
+            "num":92,
+            "desc":"M8"
+        }],
+        "manual":[
+            "Add M8 core threads to two 'Profile 4' on one end and to one 'Profile 4' on both ends which are used to make the rectangle holding the Actuation Unit.",
+            "Connect all aluminum profiles with given joints. Work from the bottom to the top.",
+            "The bulky frame can easily be transported on the back rolls, simply remove the Actuation Unit and the Display Element Unit."
+        ]
+    },
+    {
+        "name":"Display Element Unit",
+        "num":1,
+        "model":"RetractionBox.glb",
+        "components":[
+            {
+                "name":"Display Element",
+                "num":64,
+                "components":[
+                    {
+                        "name":"LED",
+                        "num":1,
+                        "desc":"SK6812 LED on an individual chip"
+                    },{
+                        "name":"Cable",
+                        "num":1,
+                        "desc":"3m+ 4-core flexible cable, e.g. tonearm wire"
+                    },{
+                        "name":"Crimps",
+                        "num":4,
+                        "desc":"Dupont Crimps and 4x housing"
+                    },{
+                        "name":"Epoxy",
+                        "num":1,
+                        "desc":"2-component clear epoxy, e.g. 30-40g per element"
+                    },{
+                        "name":"White ink",
+                        "num":1,
+                        "desc":"White ink to color elements"
+                    }
+                ],
+                "manual":[
+                    "Strip the ends of the wire. Solder one end to LED. Crimp other end.",
+                    "Prepare epoxy resin and thorougly mix it with white epoxy. Take care of color consistency, e.g., 5 drops of ink per 40g epoxy.",
+                    "Use a (spherical) mold, put LED through upper hole, pour epoxy on top. Make sure to add more epoxy as it shrinks during reaction."
+                ]
+            },{
+                "name":"Retraction Mechanism",
+                "num":1,
+                "components":[
+                    {
+                        "name":"Case",
+                        "num":1,
+                        "components":[
+                            {
+                                "name":"Base Plate",
+                                "num":1,
+                                "desc":"Sturdy wooden sheet, e.g. 10mm, 500x540mm"
+                            },{
+                                "name":"Separator",
+                                "num":65,
+                                "desc":"Lasercut separators from 3mm HDF"
+                            },{
+                                "name":"Top Cover",
+                                "num":1,
+                                "components":[
+                                    {
+                                        "name":"Sheets",
+                                        "num":7,
+                                        "desc":"Lasercut sheets from 3mm HDF"
+                                    },{
+                                        "name":"Damper",
+                                        "num":16,
+                                        "desc":"Lasercut dampers from 3mm synthetic felt"
+                                    },{
+                                        "name":"Screw 1",
+                                        "num":12,
+                                        "desc":"M3x25"
+                                    },{
+                                        "name":"Nuts 1",
+                                        "num":12,
+                                        "desc":"M3"
+                                    }
+                                ]
+                            },{
+                                "name":"Side Cover",
+                                "num":5,
+                                "desc":"Lasercut cover from 3mm acrylic"
+                            }
+                        ],
+                        "manual":[
+                            "Create the separator unit by glueing the individual parts in a regular gridlike structure.",
+                            "Stack the Top Cover in the order as given. Glue the retraction mechanism to its underside.Add the felt on top.",
+                            "The cables of each element needs to be wound around the Luff Tackle mechanism, and then runs within channels in the Top Cover to the back.",
+                            "Insert each counterweight into its designated slot in the separator unit, align both properly.",
+                            "Place it on the sturdy base board and in the bottom most position of the frame."
+                        ]
+                    },{
+                        "name":"Luff Tackle Mechanism",
+                        "num":64,
+                        "model":"LuffTackle.glb",
+                        "components":[
+                            {
+                                "name":"Disks",
+                                "num":12,
+                                "desc":"Lasercut parts from 3mm HDF to be glued into 3 different rolls"
+                            },{
+                                "name":"Upper Mount",
+                                "num":3,
+                                "desc":"Lasercut parts from 3mm HDF"
+                            },{
+                                "name":"Lower Sled",
+                                "num":2,
+                                "desc":"Lasercut parts from 3mm HDF"
+                            },{
+                                "name":"Screw 1",
+                                "num":6,
+                                "desc":"M5x8"
+                            },{
+                                "name":"Washer 1",
+                                "num":6,
+                                "desc":"M8"
+                            },{
+                                "name":"Bearing",
+                                "num":3,
+                                "desc":"Round Spacer, 15mm length, 8mm diameter, M5 threads on both sides"
+                            },{
+                                "name":"Screw 2",
+                                "num":1,
+                                "desc":"M3x24"
+                            },{
+                                "name":"Nut 2",
+                                "num":1,
+                                "desc":"M3, locking"
+                            },{
+                                "name":"Counterweight",
+                                "num":1,
+                                "desc":"Sinker, weight of 200g"
+                            }
+                        ],
+                        "manual":[
+                            "Glue the disks as stacks of 4 to create 3 rolls with 20/35mm, 30/45mm, 40/55mm diameter.",
+                            "Screw the biggest and smallest rolls in between the lower sled, using Screw 1, Washer 1, Bearing.",
+                            "Mount the countweight to the sled using Screw 2, Nut 2.",
+                            "Proceed similarly with the upper upper mount."
+                        ]
+                    }
+                ]
+            },{
+                "name":"Controller",
+                "num":1,
+                "components":[
+                    {
+                        "name":"Microcontroller Board",
+                        "num":1,
+                        "desc":"NodeMCU ESP-32"
+                    },{
+                        "name":"PCB",
+                        "num":1,
+                        "desc":"Custom PCB for connecting all LEDs"
+                    },{
+                        "name":"Jumper",
+                        "num":64,
+                        "desc":"4x jumper to connect the crimped cables to"
+                    },{
+                        "name":"Other components",
+                        "num":12,
+                        "desc":"Other electrical components needs for PCB"
+                    },{
+                        "name":"Power Supply",
+                        "num":1,
+                        "desc":"5V 3A power supply"
+                    }
+                ],
+                "manual":[
+                    "Solder all components onto PCB.",
+                    "Connect all LED cables",
+                    "Connect to power, programm ESP."
+                ]
+            },{
+                "name":"Base Board",
+                "num":1,
+                "desc":"Beech board 495x540x10mm supporting the whole unit"
+            }
+        ]
+    }]
+}
