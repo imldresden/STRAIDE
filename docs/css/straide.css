@@ -1,0 +1,52 @@
+.manualLabel {
+    display: inline-block;
+    transform: scale(.85) translateX(-2rem);
+    opacity: .5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: .2s;
+    color: #384a1e;
+}
+
+a:hover {
+    color: #92c14e;
+}
+
+hr {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.card-img-overlay {
+    top: unset;
+    background: rgba(255, 255, 255, .8);
+}
+
+#paper {
+    height: 300px;
+    filter: drop-shadow(10px 10px 10px darkgrey);
+    transition:1s;
+}
+
+#paper:hover {
+    transform: scale(1.1);
+}
+
+#videofigure {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}

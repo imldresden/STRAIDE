@@ -64,12 +64,12 @@
                     "name":"Parts",
                     "num":6,
                     "desc":"Lasercut parts made from 3mm acrylic sheets",
-                    "img":"acryl_parts.jpg"
+                    "img":"../../img/web/acryl_parts.jpg"
                 },{
                     "name":"Felt",
                     "num":1,
                     "desc":"Lasercut suspension made from 3mm synthetic felt",
-                    "img":"felt.jpg"
+                    "img":"../../img/web/felt.jpg"
                 },{
                     "name":"Endstop",
                     "num":1,
@@ -84,7 +84,7 @@
                         "name":"Tactile Switch",
                         "num":1,
                         "desc":"Panasonic AV 32143 AT",
-                        "img":"switch.jpg"
+                        "img":"../../img/web/switch.jpg"
                     },{
                         "name":"Wire",
                         "num":1,
@@ -117,7 +117,7 @@
                     "name":"Stepper Motor",
                     "num":1,
                     "desc":"NEMA14 stepper motor, length: 34mm, >=18Ncm",
-                    "img":"stepper.jpg"
+                    "img":"../../img/web/stepper.jpg"
                 },{
                     "name":"Screw 1",
                     "num":4,
@@ -266,7 +266,7 @@
                 "Now add the Aligner connecting the four rods",
                 "Add one damper, one Spacer 1, one damper.",
                 "Add one motor module.",
-                "Repeat step 4 and 5 three times. Take care that each motor module needs to be rotated 90 degrees clockwise to the previous one.",
+                "Repeat the two previous steps three times. Take care that each motor module needs to be rotated 90 degrees clockwise to the previous one.",
                 "Add one damper, one Spacer 2, one damper.",
                 "Add the Controller Module.",
                 "Add one damper, one Spacer 3, one damper.",

@@ -8,14 +8,14 @@
 
         <title>STRAIDE</title>
 
-        <link ref="stylesheet" href="css/main.css" type="text/css"/>
+        <link rel="stylesheet" href="css/straide.css"/>
 
         <script type="text/javascript" src="https://livejs.com/live.js"></script>
         <script src="js/model3d.js"></script>
     </head>
     <body>
         
-        <div class="container g-5">
+        <div class="container gy-5">
             <div class="row">
                 <h1 class="display-3"><b>STRAIDE:</b><br/>A Research Platform for Shape-Changing Spatial Displays based on Actuated Strings</h1>
             </div>
@@ -24,7 +24,7 @@
             </div>
             <hr/>
             <div class="row">
-                <div class="col">
+                <div class="col-xl-6">
                     <p>
                         We present STRAIDE, a string-actuated interactive display environment that allows to explore the promising potential of shape-changing interfaces for casual visualizations.
                         At the core, we envision a platform that spatially levitates elements to create dynamic visual shapes in space.
@@ -35,8 +35,23 @@
                         They serve as a technical validation, lay the foundations for a discussion with developers that provided valuable insights, and encourage ideas for future usage of this type of appealing interactive installation.
                     </p>
                 </div>
-                <div class="col">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/t-R04SkK6vs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="col-xl-6 text-center align-self-center">
+                    <div id="videofigure">
+                        <iframe src="https://www.youtube.com/embed/t-R04SkK6vs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Publication<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#bibModal" style="float: right">BibTex</button></h2>
+                    <p>If you would like to cite STRAIDE in your research, please cite our CHI'22 full paper:</p>
+                    <p>Severin Engert, Konstantin Klamka, Andreas Peetz, and Raimund Dachselt. 2022. STRAIDE: A Research Platform for Shape-Changing Spatial Displays based on Actuated Strings. In CHI Conference on Human Factors in Computing Systems (CHI ’22), April 29-May 5, 2022, New Orleans, LA, USA. ACM, New York, NY, USA, 16 pages.<br/><a href="https://doi.org/10.1145/3491102.3517462" target="_blank">https://doi.org/10.1145/3491102.3517462</a></p>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <a href="https://imld.de/cnt/uploads/STRAIDE_CHI22_Engert_AV.pdf" target="_blank">
+                        <img id="paper" src="../img/web/full_paper.jpg"/>
+                    </a>
                 </div>
             </div>
             <hr/>
@@ -213,7 +228,36 @@
                     </div>
                 </div>
             </div>
-        </div>             
+        </div>
+        <div class="modal fade" id="bibModal" tabindex="-1" aria-labeledby="bibLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="questionLabel">STRAIDE BibTex</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code>
+@inproceedings{Engert2022,
+    author = {Severin Engert and Konstantin Klamka and Andreas Peetz and Raimund Dachselt},
+    title = {STRAIDE: A Research Platform for Shape-Changing Spatial Displays based on Actuated Strings},
+    booktitle = {Proceedings of the 2022 CHI Conference on Human Factors in Computing Systems},
+    series = {CHI '22},
+    year = {2022},
+    month = {4},
+    isbn = {978-1-4503-9157-3/22/04},
+    location = {New Orleans, LA, USA},
+    numpages = {16},
+    doi = {10.1145/3491102.3517462},
+    publisher = {ACM},
+    address = {New York, NY, USA},
+    keywords = {Prototyping Platform, Spatial Display, Shape-Changing Interface, Tangible Interaction, Casual Visualization, Data Physicalization}
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>              
         
     
 
