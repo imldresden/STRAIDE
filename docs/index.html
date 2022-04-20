@@ -65,10 +65,10 @@
                         <b>?</b>
                     </button>
                 </h2>
-                <div class="col h-100">
-                    <!--<model-3d id="3dpreview" background-color="#ffffff" src="models/Frame.glb"></model-3d>-->
+                <div class="col text-center">
+                    <button type="button" class="btn btn-success align-middle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Might be resource intensive." onclick="ActivateModel(this);">Show 3D Model</button>
                 </div>
-                <div class="col h-100" id="anchor"></div>
+                <div class="col" id="anchor"></div>
             </div>
             <hr/>
             <div class="row">
@@ -298,8 +298,15 @@
                 });
             }
 
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
             
-
+            function ActivateModel(btn){
+                tooltipList.forEach(tt => tt.hide());
+                $(btn).parent().html(`<model-3d id="3dpreview" background-color="#ffffff" src="models/Frame.glb"></model-3d>`);
+            }
             
 
             

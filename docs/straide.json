@@ -55,7 +55,7 @@
         {
             "name":"Motor Tower",
             "num":16,
-            "model":"MotorTower.glb",
+            "model":"ActuationTower.glb",
             "components": [{
                 "name":"Motor Mount",
                 "num":4,
