@@ -24,7 +24,7 @@ class Model3d extends HTMLElement{
                 scene.activeCamera.wheelDeltaPercentage = 0.01;
                 scene.activeCamera.radius = 5000;
                 scene.activeCamera.maxZ = 50000;
-                scene.activeCamera.noRotationConstraint = true;
+                scene.activeCamera.noRotationConstraint = false;
                 return scene;
             }
 
@@ -90,7 +90,7 @@ class Model3d extends HTMLElement{
                 
                 
                 task.loadedMeshes[0].setPivotPoint(center);
-                task.loadedMeshes[0].rotation = new BABYLON.Vector3(90,0,180);
+                //task.loadedMeshes[0].rotation = new BABYLON.Vector3(90,0,180);
                 //scene.activeCamera.zoomOn(scene.meshes, false);
                 scene.activeCamera.setTarget(center);
                 
