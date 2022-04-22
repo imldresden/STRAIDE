@@ -74,7 +74,7 @@ function evalComponents(d, prefix){
         s += '<div class="col">';
             s += '<div class="card h-100">';
                 if(typeof it.img !== 'undefined')
-                    s += '<img src="../img/web/' + it.img + '" class="card-img-top">';
+                    s += '<img src="img/' + it.img + '" class="card-img-top">';
                 s += '<div class="card-body">';
                     s += '<h5 class="card-title">' + it.num + 'x ' + it.name + '</h5>';
                     s += '<p class="card-text">' + it.desc + '</p>';
