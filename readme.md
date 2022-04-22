@@ -14,7 +14,7 @@ For conveniently designing and implementing novel applications, we provide devel
 To demonstrate STRAIDE's reconfigurability, we further introduce three representative physical setups as a basis for situated applications including ambient notifications, personal smart home controls, and entertainment.
 They serve as a technical validation, lay the foundations for a discussion with developers that provided valuable insights, and encourage ideas for future usage of this type of appealing interactive installation.
 
-[doi](/)
+[doi.org/10.1145/3491102.3517462](https://doi.org/10.1145/3491102.3517462)
 
 ## Repository
 maintained by [Severin Engert](https://github.com/sev01)
@@ -22,13 +22,13 @@ maintained by [Severin Engert](https://github.com/sev01)
 ### Components:
 * [Hardware](Hardware)
 * [Firmware](Firmware)
-  * Server (TODO)
-  * Slave Motors (TODO)
-  * Slave Colors (TODO)
+  * Server (tba)
+  * [Slave Motors](Firmware/Motor_Uno)
+  * [Slave Colors](Firmware/Color_ESP32)
 * [Software](Software)
-  * Platform Emulator (TODO) ([Executable](Software/PlatformEmulator/PlatformEmulator.zip), [Unity-Project](Software/PlatformEmulator/Unity), AR)
+  * [Platform Emulator](Software/PlatformEmulator) ([Executable](Software/PlatformEmulator/PlatformEmulator.zip), [Unity-Project](Software/PlatformEmulator/Unity), AR (tba))
   * [Clients](Software/Clients) ([Arduino](Software/Clients/Arduino), [JavaScript](Software/Clients/), [C#](Software/Clients/Unity))
-  * [Visual Editor](Software/VisualEditor) (live (TODO))
+  * [Visual Editor](Software/VisualEditor) (live (tba))
 
 ## Contributors
 
