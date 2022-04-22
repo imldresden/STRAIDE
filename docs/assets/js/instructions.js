@@ -74,18 +74,18 @@ function evalComponents(d, prefix){
         s += '<div class="col">';
             s += '<div class="card h-100">';
                 if(typeof it.img !== 'undefined')
-                    s += '<img src="img/' + it.img + '" class="card-img-top">';
+                    s += '<img src="assets/img/' + it.img + '" class="card-img-top">';
                 s += '<div class="card-body">';
                     s += '<h5 class="card-title">' + it.num + 'x ' + it.name + '</h5>';
                     s += '<p class="card-text">' + it.desc + '</p>';
                 s += '</div>';
                 if(typeof it.files !== 'undefined'){
                     s += '<div class="card-body d-grid">';
-                        s += '<a class="btn btn-primary" type="button" href="../Hardware/' + it.files + '" target="_blank"><i class="bi bi-cloud-arrow-down-fill"></i> Download</a>';
+                        s += '<a class="btn btn-primary" type="button" href="https://github.com/imldresden/STRAIDE/tree/master/Hardware/' + it.files + '" target="_blank"><i class="bi bi-cloud-arrow-down-fill"></i> Download</a>';
                     s += '</div>';
                 } else if(typeof it.file !== 'undefined'){
                     s += '<div class="card-body d-grid">';
-                        s += '<a class="btn btn-primary" type="button" href="../Hardware/' + it.file + '" download><i class="bi bi-cloud-arrow-down-fill"></i> Download ' + it.file.slice(it.file.indexOf(".")+1).toUpperCase() + '</a>';
+                        s += '<a class="btn btn-primary" type="button" href="https://github.com/imldresden/STRAIDE/tree/master/Hardware/' + it.file + '" download><i class="bi bi-cloud-arrow-down-fill"></i> Download ' + it.file.slice(it.file.indexOf(".")+1).toUpperCase() + '</a>';
                     s += '</div>';
                 }
 
