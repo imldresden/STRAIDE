@@ -50,3 +50,14 @@ iframe {
     height: 100%;
     width: 100%;
 }
+
+#3dpreview {
+    height: 500px;
+}
+
+#activatePreview {
+    position: absolute;
+    top:40%;
+    left: 40%;
+    transform: translate(-50% -50%);
+}

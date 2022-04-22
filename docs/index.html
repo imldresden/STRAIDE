@@ -64,8 +64,9 @@
                         <b>?</b>
                     </button>
                 </h2>
-                <div class="col text-center">
-                    <button type="button" class="btn btn-success align-middle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Might be resource intensive." onclick="ActivateModel(this);">Show 3D Model</button>
+                <div class="col text-center" style="position: relative;">
+                    <img src="./assets/img/3dpreview.jpg" width="100%" height="auto" />
+                    <button id="activatePreview" type="button" class="btn btn-warning align-middle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Might be resource intensive." onclick="ActivateModel(this);">Show 3D Model</button>
                 </div>
                 <div class="col" id="anchor"></div>
             </div>
@@ -304,7 +305,7 @@
             
             function ActivateModel(btn){
                 tooltipList.forEach(tt => tt.hide());
-                $(btn).parent().html(`<model-3d id="3dpreview" background-color="#ffffff" src="./assets/models/Frame.glb"></model-3d>`);
+                $(btn).parent().html(`<model-3d id="3dpreview" background-color="#ffffff" src="./assets/models/STRAIDE.glb"></model-3d>`);
             }
             
 
