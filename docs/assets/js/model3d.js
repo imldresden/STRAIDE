@@ -7,7 +7,7 @@ class Model3d extends HTMLElement{
         const cnv = document.createElement('canvas');
         cnv.setAttribute('id', 'renderCanvas');
         cnv.setAttribute('touch-action', 'none');
-        cnv.style = "width: 100%; height: 100%; touch-action: none;";
+        cnv.style = "width: 100%; height: 500px; touch-action: none;";
         shadow.appendChild(cnv);
 
         let scene = null;
@@ -71,8 +71,9 @@ class Model3d extends HTMLElement{
         /*LOAD 3D MODEL*/
         //method that loads a 3d model into the created scene
         let loadGLTFAux = function(file){
-            scene.meshes.pop();
-            scene.meshes.pop();
+            //scene.meshes.pop();
+            //scene.meshes.pop();
+            scene.meshes = [];
             const path = decodePath(file);
             var assetsManager = new BABYLON.AssetsManager(scene);
             const meshTask = assetsManager.addMeshTask('glb task', '', path[0], path[1]);

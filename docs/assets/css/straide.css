@@ -51,10 +51,6 @@ iframe {
     width: 100%;
 }
 
-#3dpreview {
-    height: 500px;
-}
-
 #activatePreview {
     position: absolute;
     top:40%;

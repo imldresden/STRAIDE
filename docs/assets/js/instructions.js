@@ -171,7 +171,7 @@ function composeManual(d){
 function loadGLB(el,model){
 
     if(!$(el).hasClass("collapsed") && typeof model !== 'undefined'){
-        $("#3dpreview").attr("src", "models/" + model);
+        $("#3dpreview").attr("src", "./assets/models/" + model);
     }
     //console.log(document.getElementById("3dpreview"));
 }
