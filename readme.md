@@ -22,7 +22,7 @@ maintained by [Severin Engert](https://github.com/sev01)
 ### Components:
 * [Hardware](Hardware)
 * [Firmware](Firmware)
-  * Server (tba)
+  * [Server](Firmware/Server_NodeJS)
   * [Slave Motors](Firmware/Motor_Uno)
   * [Slave Colors](Firmware/Color_ESP32)
 * [Software](Software)
