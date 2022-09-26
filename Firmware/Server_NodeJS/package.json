@@ -1,0 +1,18 @@
+{
+  "name": "maiden_system",
+  "version": "0.0.1",
+  "description": "MAIDEN System",
+  "main": "controller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.imld.de/research/project/kinetic-sculpture/system-software"
+  },
+  "author": "Severin Engert",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^7.5.5"
+  }
+}
