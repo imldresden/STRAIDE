@@ -28,7 +28,5 @@ maintained by [Severin Engert](https://github.com/sev01)
 * [Software](Software)
   * [Platform Emulator](Software/PlatformEmulator) ([Executable](Software/PlatformEmulator/PlatformEmulator.zip), [Unity-Project](Software/PlatformEmulator/Unity), AR (tba))
   * [Clients](Software/Clients) ([Arduino](Software/Clients/Arduino), [JavaScript](Software/Clients/), [C#](Software/Clients/Unity))
-  * [Visual Editor](Software/VisualEditor) (live (tba))
-
-## Contributors
+  * [Visual Editor](Software/VisualEditor) ([live](https://imldresden.github.io/STRAIDE/visual_editor.html))
 
